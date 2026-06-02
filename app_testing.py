@@ -17,11 +17,11 @@ with st.sidebar:
 st.title("Dasbor Pemantauan Generator Oksigen PCI")
 
 # Ganti dengan URL CSV Anda yang asli
-SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vToETBv5dQtX9OT8Tgj8coDBdcA_Aw-WFuUiP1mwC0bO2s9xkPQsgnOcHcGo1EofbJnZNGEmXlqr8U1/pubhtml?gid=1698189058&single=true"
+SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSegXE1uw1kZNNJN9iy4mmbxyy3KXM_6HrMBEq6Aq5hL_yPqH27Fpr3GfFtAOzHD4OsDzz6A01AZJVr/pub?gid=0&single=true&output=csv"
 
 @st.cache_data(ttl=10)
 def load_data():
-    df = pd.read_csv(SHEET_CSV_URL)
+    df = pd.read_csv(SHEET_CSV_URL, engine='python', on_bad_lines='skip')
     
     # Sanitasi Data Massal
     kolom_numerik = ['O2_Purity', 'Feed_Pressure', 'Discharge_Pressure', 'Flow_Rate_LPM']
