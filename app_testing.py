@@ -96,7 +96,7 @@ try:
                 )
             ).encode(
                 x=alt.X("Timestamp:N", axis=alt.Axis(labels=False, title=None)), # Sembunyikan label X agar rapi
-                y=alt.Y("O2_Purity:Q", scale=alt.Scale(domain=[85, 96]), title="% Purity"),
+                y=alt.Y("O2_Purity:Q", scale=alt.Scale(domain=[85, 96]), title="% Purity", axis=alt.Axis(titlePadding=20)),
                 tooltip=["Timestamp", "O2_Purity"]
             ).properties(height=250)
             st.altair_chart(chart_purity, use_container_width=True)
@@ -115,8 +115,8 @@ try:
 
     with tab2:
         st.markdown("### Database Log Mentah")
-        st.dataframe(data.style.applymap(
-            lambda x: 'background-color: #ff4c4c; color: white' if x in ['FAULT', 'CRITICAL'] else '', subset=['Status']
+        st.dataframe(data.style.map(
+        lambda x: 'background-color: #ff4c4c; color: white' if x in ['FAULT', 'CRITICAL'] else '', subset=['Status']
         ), use_container_width=True, height=400)
 
 except Exception as e:
