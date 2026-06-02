@@ -17,7 +17,7 @@ with st.sidebar:
 st.title("Dasbor Pemantauan Generator Oksigen PCI")
 
 # Ganti dengan URL CSV Anda yang asli
-SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-xxxxxx/pub?gid=0&single=true&output=csv"
+SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vToETBv5dQtX9OT8Tgj8coDBdcA_Aw-WFuUiP1mwC0bO2s9xkPQsgnOcHcGo1EofbJnZNGEmXlqr8U1/pubhtml?gid=1698189058&single=true"
 
 @st.cache_data(ttl=10)
 def load_data():
